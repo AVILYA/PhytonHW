@@ -3,10 +3,10 @@ class StringUtils:
     Класс с полезными утилитами для обработки и анализа строк
     """
 
-    def capitilize(self, string: str) -> str:
+    def capitalize(self, string: str) -> str:
         """
         Принимает на вход текст, делает первую букву заглавной и возвращает этот же текст
-        Пример: `capitilize("skypro") -> "Skypro"`
+        Пример: `capitalize("skypro") -> "Skypro"`
         """
         return string.capitalize()
 

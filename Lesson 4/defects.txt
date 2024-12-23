@@ -1,0 +1,12 @@
+Тест-кейс 1: Метод "capitalize" не работает.
+Описание: Метод неправильно назван как "capitilize".
+Решение: Переименовать метод в "capitalize".
+Ответственный: Разработчик
+================================================================================================================================================= short test summary info ================================================================================================================================================= 
+FAILED Lesson 4/test_string_utils.py::test_capitalize[sam-Sam] - AttributeError: 'StringUtils' object has no attribute 'capitalize'. Did you mean: 'capitilize'?
+FAILED Lesson 4/test_string_utils.py::test_capitalize[\u0430\u043d\u043d\u0430\u041c\u0430\u0440\u0438\u044f-\u0410\u043d\u043d\u0430\u043c\u0430\u0440\u0438\u044f] - AttributeError: 'StringUtils' object has no attribute 'capitalize'. Did you mean: 'capitilize'?
+FAILED Lesson 4/test_string_utils.py::test_capitalize[mary Anne-Mary anne] - AttributeError: 'StringUtils' object has no attribute 'capitalize'. Did you mean: 'capitilize'?
+FAILED Lesson 4/test_string_utils.py::test_capitalize[-] - AttributeError: 'StringUtils' object has no attribute 'capitalize'. Did you mean: 'capitilize'?
+FAILED Lesson 4/test_string_utils.py::test_capitalize[123abc-123abc] - AttributeError: 'StringUtils' object has no attribute 'capitalize'. Did you mean: 'capitilize'?
+FAILED Lesson 4/test_string_utils.py::test_capitalize[MAX-Max] - AttributeError: 'StringUtils' object has no attribute 'capitalize'. Did you mean: 'capitilize'?
+============================================================================================================================================== 6 failed, 44 passed in 0.09s

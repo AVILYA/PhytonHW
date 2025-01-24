@@ -1,34 +1,35 @@
-import pytest
 from selenium import webdriver
+from form_page import Autom_data
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
-from pages_form import DataTypesPage
 
-@pytest.fixture
-def driver():
-    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
-    yield driver
-    driver.quit()
 
-def test_form_validation(driver):
-    """Тест проверяет заполнение и валидацию формы."""
-    # 1. Создание объекта страницы
-    data_types_page = DataTypesPage(driver)
-    
-    # 2. Открыть страницу
-    data_types_page.open()
-    
-    # 3. Заполнить форму
-    data_types_page.fill_form()
-    
-    # 4. Отправить форму
-    data_types_page.submit_form()
+def test_auth_form():
+    driver = webdriver.Chrome(service=ChromeService(
+        ChromeDriverManager().install()))
+    auth_page = Autom_data(driver)
+    auth_page.person_data(
+        "Иван",
+        "Петров",
+        "Ленина, 55-3",
+        "",
+        "Москва",
+        "Россия",
+        "test@skypro.com",
+        "+7985899998787",
+        "QA",
+        "SkyPro",
+    )
+    auth_page.check_person_data()
+    success_results, danger_results = auth_page.get_result()
 
-    # 5. Проверить, что поле Zip code подсвечено красным
-    zip_code_field = data_types_page.get_zip_code_field()
-    assert "is-invalid" in zip_code_field.get_attribute("class"), "Zip code is not red."
+    success_class = "alert-success"
+    danger_class = "alert-danger"
 
-    # 6. Проверить, что остальные поля подсвечены зеленым
-    other_fields = data_types_page.get_other_fields()
-    for field_id, field in other_fields.items():
-       assert "is-valid" in field.get_attribute("class"), f"{field_id} is not green."
+    for i in success_results:
+        assert success_class in i
+
+    for k in danger_results:
+        assert danger_class in k
+
+    auth_page.driver.quit()
